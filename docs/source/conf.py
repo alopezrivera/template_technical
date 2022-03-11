@@ -105,7 +105,7 @@ def run_apidoc(app):
             '-fMeET',
             '-o',
             'source',
-            f'../.',
+            f'../{codename}',   # Change to '../.' if you wish to document scripts in your top-level project directory
         ]
     )
 

@@ -1,0 +1,48 @@
+name: Bake Cookie
+
+on:                       # Run action when changes are pushed or pull requests are accepted
+  push:
+    branches-ignore: 
+      - 'docs'            # Run on pushes to any branch except the doc hosting branch
+  pull_request:
+    branches-ignore:
+      - 'docs'            # Run on pull requests to any branch except the doc hosting branch
+  release:
+    types: [ published ]
+
+jobs:
+
+  bake:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Set up Git repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Clean up
+      run: |
+        rm -r {{cookiecutter.repo_name}}
+    - name: Set up
+      run: |
+        mkdir {{cookiecutter.repo_name}}
+    - name: Bake
+      run: |
+        cp -R docs {{cookiecutter.repo_name}}/docs
+        cp -R .github {{cookiecutter.repo_name}}/.github
+    - name: Top it off
+      run: |
+        cp -R project {{cookiecutter.repo_name}}/{{cookiecutter.codename}}
+    - name: Spice it up
+      run: |
+        cp .gitignore {{cookiecutter.repo_name}}/.gitignore
+        cp LICENSE {{cookiecutter.repo_name}}/LICENSE
+    - name: Serve
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add -A && git commit --allow-empty -m "Baked Cookie"
+        git push -u

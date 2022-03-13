@@ -1,10 +1,4 @@
 {
   "project": "Project",
-  "codename": "codename",
-  "version": "0.0.1",
-  "author": "Author",
-  "email": "contact@email.com",
-  "project_short_description": "Project description.",
-  "release_date": "2022-01-01",
-  "year": "2022"
+  "codename": "codename"
 }

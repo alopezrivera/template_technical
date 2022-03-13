@@ -11,7 +11,7 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-from project import project, author, codename
+from source.project import project, author, codename
 
 # Copyright
 copyright = f'{datetime.datetime.now().date().strftime("%Y")}, {author}'

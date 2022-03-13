@@ -75,11 +75,11 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source-directory: ${{ steps.generate.outputs.html }}    # Cannot use $ variable substitution in function inputs
-        destination-github-username: 'mpl-plotter-docs'
-        destination-repository-name: 'mpl-plotter-docs.github.io'
-        user-email: antonlopezr99@gmail.com
+        destination-github-username: $dest_gh_username
+        destination-repository-name: $dest_gh_repository
+        user-email: $user_email
         commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-        target-branch: main
+        target-branch: $dest_branch
     # BRANCH hosting =============================================
     - name: Stow
       if: env.branch != ''
@@ -91,7 +91,7 @@ jobs:
       if: env.branch != ''
       uses: actions/checkout@v3
       with:
-        ref: docs
+        ref: $branch
     - name: Set
       if: env.branch != ''
       run: |
@@ -171,5 +171,5 @@ jobs:
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add $docsdirectory/${{ github.event.repository.name }}.pdf && git commit --allow-empty -m "Updated Report"
+        git add $pdf_dir/${{ github.event.repository.name }}.pdf && git commit --allow-empty -m "Updated Report"
         git push -u

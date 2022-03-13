@@ -26,6 +26,22 @@ def lonely_function():
         3n+1, & \text{if $n$ is odd}
         \end{cases}
 
+    Table syntax is rather weird but manageable.
+
+    .. _table1:
+    .. list-table:: Example table.
+        :widths: auto
+        :header-rows: 1
+
+        * - **Header 1**
+          - **Header 2**
+          - **Header 3**
+          - **Header 4**
+        * - A
+          - B
+          - C
+          - D
+
     You can add pictures if you want too. Importantly, when you
     are generating documentation from your code:
     
@@ -58,8 +74,8 @@ def lonely_function():
         :width: 50%
         :align: center
 
-        Adding a cross-reference to :numref:`figure1` works much as it 
-        would in LaTeX.
+        Adding a cross-reference to :numref:`table1` or :numref:`figure1` works 
+        much as it would in LaTeX.
 
     .. raw:: latex
 

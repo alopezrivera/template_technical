@@ -9,15 +9,13 @@ import datetime
 import importlib
 import sphinx_rtd_theme
 
+# Set up paths for import
+file_path = os.path.realpath(__file__)                            # Obtain path of this config file
+root_path = (os.sep).join(file_path.split(os.sep)[:-3])           # Obtain project root path
+sys.path.insert(1, root_path)                                     # Import from root path
+
 # -- Project information -----------------------------------------------------
-
-from source.project import project, author, codename
-
-# Copyright
-copyright = f'{datetime.datetime.now().date().strftime("%Y")}, {author}'
-
-# Language
-language = 'en'
+from docs.source.project import project, author, codename
 
 # Obtain the project's release version, which must be stored in a
 # __version__ variable inside the main project script or package.
@@ -33,11 +31,14 @@ language = 'en'
 #            if __name__ == '__main__':
 #                <body of your project>
 #
-file_path = os.path.realpath(__file__)                            # Obtain path of this config file
-root_path = (os.sep).join(file_path.split(os.sep)[:-3])           # Obtain project root path
-sys.path.insert(1, root_path)                                     # Import from root path
 release = importlib.import_module(codename).__version__           # Get project version
 sys.path.remove(root_path)                                        # Remove root path from search
+
+# Copyright
+copyright = f'{datetime.datetime.now().date().strftime("%Y")}, {author}'
+
+# Language
+language = 'en'
 
 # -- Text editing ------------------------------------------------------------
 

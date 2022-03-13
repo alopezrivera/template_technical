@@ -1,4 +1,5 @@
 {
   "project": "Project",
-  "codename": "codename"
+  "codename": "codename",
+  "_copy_without_render": [".github/*"]
 }

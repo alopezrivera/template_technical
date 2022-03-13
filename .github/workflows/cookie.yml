@@ -1,8 +1,8 @@
-name: Bake Cookie
+name: Bake cookie
 
 on:
   workflow_run:
-    workflows: [Documentation Workflow]
+    workflows: [Documentation workflow]
     types: [completed]
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
     
     # Run if previous Documentation Workflow has been successful
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    
+
     steps:
     - name: Set up Git repository
       uses: actions/checkout@v3

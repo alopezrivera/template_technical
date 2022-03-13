@@ -38,14 +38,20 @@ jobs:
         grep -v '^#' config.env | tr -d "[:blank:]" >> $GITHUB_ENV
     - name: Report host(s)
       run: |
-        if ! [ -z "${branch}" ]
+        if ! [ -z "${branch}" ]; then
           # If a host branch has been provided
-          then echo "Host: ${{ github.event.repository.name }}.$branch"
+          echo "Host: ${{ github.event.repository.name }}.$branch"
+          echo ::set-output name=branch::$branch
         fi
-        if ! [ -z "${dest_gh_repository+x}" ]
+        if ! [ -z "${dest_gh_repository+x}" ]; then
           # If a host repository has been provided
-          then echo "Host: $dest_gh_repository.$dest_branch"
+          echo "Host: $dest_gh_repository.$dest_branch"
+          echo ::set-output name=dest_gh_username::$dest_gh_username
+          echo ::set-output name=dest_gh_reponame::$dest_gh_repository
+          echo ::set-output name=dest_gh_repobranch::$dest_branch
+          echo ::set-output name=user_email::$user_email
         fi
+      id: config
     # Generate documentation =====================================
     - name: Set up Python 3.7
       uses: actions/setup-python@v2
@@ -74,12 +80,13 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source-directory: ${{ steps.generate.outputs.html }}    # Cannot use $ variable substitution in function inputs
-        destination-github-username: $dest_gh_username
-        destination-repository-name: $dest_gh_repository
-        user-email: $user_email
+      # Cannot use $ variable substitution in function inputs
+        source-directory: ${{ steps.generate.outputs.html }}
+        destination-github-username: ${{ steps.config.outputs.dest_gh_username }}
+        destination-repository-name: ${{ steps.config.outputs.dest_gh_reponame }}
+        target-branch: ${{ steps.config.outputs.dest_gh_repobranch }}
+        user-email: ${{ steps.config.outputs.user_email }}
         commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-        target-branch: $dest_branch
     # BRANCH hosting =============================================
     - name: Stow
       if: env.branch != ''
@@ -91,7 +98,7 @@ jobs:
       if: env.branch != ''
       uses: actions/checkout@v3
       with:
-        ref: $branch
+        ref: ${{ steps.config.outputs.branch }}
     - name: Set
       if: env.branch != ''
       run: |
@@ -166,7 +173,7 @@ jobs:
         make LATEXMKOPTS="-lualatex"
     - name: Set
       run: |
-        mv -v $docsdirectory/build/latex/main.pdf $docsdirectory/${{ github.event.repository.name }}.pdf
+        mv -v $docsdirectory/build/latex/main.pdf $pdf_dir/${{ github.event.repository.name }}.pdf
     - name: Push
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"

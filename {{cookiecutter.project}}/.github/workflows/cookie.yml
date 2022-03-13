@@ -1,14 +1,9 @@
-name: Bake Cookie
+name: Bake cookie
 
-on:                       # Run action when changes are pushed or pull requests are accepted
-  push:
-    branches-ignore: 
-      - 'docs'            # Run on pushes to any branch except the doc hosting branch
-  pull_request:
-    branches-ignore:
-      - 'docs'            # Run on pull requests to any branch except the doc hosting branch
-  release:
-    types: [ published ]
+on:
+  workflow_run:
+    workflows: [Documentation workflow]
+    types: [completed]
 
 jobs:
 
@@ -17,6 +12,9 @@ jobs:
     defaults:
       run:
         shell: bash
+    
+    # Run if previous Documentation Workflow has been successful
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
     - name: Set up Git repository

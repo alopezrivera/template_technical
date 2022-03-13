@@ -25,23 +25,23 @@ jobs:
         fetch-depth: 0
     - name: Clean up
       run: |
-        rm -r {{cookiecutter.repo_name}}
+        rm -r {{cookiecutter.project}}
     - name: Set up
       run: |
-        mkdir {{cookiecutter.repo_name}}
+        mkdir {{cookiecutter.project}}
     - name: Bake
       run: |
-        cp -R docs {{cookiecutter.repo_name}}/docs
-        cp -R .github {{cookiecutter.repo_name}}/.github
-        cp -R requirements.txt {{cookiecutter.repo_name}}/requirements.txt
+        cp -R docs {{cookiecutter.project}}/docs
+        cp -R .github {{cookiecutter.project}}/.github
+        cp -R requirements.txt {{cookiecutter.project}}/requirements.txt
     - name: Top it off
       run: |
-        cp -R project {{cookiecutter.repo_name}}/{{cookiecutter.codename}}
-        cp -R README.md {{cookiecutter.repo_name}}/GUIDE.md
+        cp -R project {{cookiecutter.project}}/{{cookiecutter.codename}}
+        cp -R README.md {{cookiecutter.project}}/GUIDE.md
     - name: Spice it up
       run: |
-        cp .gitignore {{cookiecutter.repo_name}}/.gitignore
-        cp LICENSE {{cookiecutter.repo_name}}/LICENSE
+        cp .gitignore {{cookiecutter.project}}/.gitignore
+        cp LICENSE {{cookiecutter.project}}/LICENSE
     - name: Serve
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"

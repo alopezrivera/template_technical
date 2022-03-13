@@ -1,10 +1,14 @@
 name: Bake Cookie
 
-on:   # Run after completion of documentation workflows to avoid merge conflicts
-  workflow_run:
-    workflows: ["Documentation Workflow"]
-    types:
-      - completed
+on:                       # Run action when changes are pushed or pull requests are accepted
+  push:
+    branches-ignore: 
+      - 'docs'            # Run on pushes to any branch except the doc hosting branch
+  pull_request:
+    branches-ignore:
+      - 'docs'            # Run on pull requests to any branch except the doc hosting branch
+  release:
+    types: [ published ]
 
 jobs:
 

@@ -135,12 +135,12 @@ html_theme_options = {
 
 report_doc             = 'report'
 figures                = [os.path.join(dp, f) for dp, dn, filenames in os.walk('figures') for f in filenames]
-latex_additional_files = ['project.sty', 'style.sty'] + figures
+latex_additional_files = ['style.sty', 'project.sty'] + figures
 
 latex_engine = 'lualatex'
 
 latex_elements = {
-'preamble': r'\RequirePackage{project}',
+'preamble': r'\RequirePackage{style}',
 'releasename': 'Version',
 'papersize': 'a4paper',
 'pointsize': '11pt',

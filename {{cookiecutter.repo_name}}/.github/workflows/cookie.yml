@@ -33,9 +33,11 @@ jobs:
       run: |
         cp -R docs {{cookiecutter.repo_name}}/docs
         cp -R .github {{cookiecutter.repo_name}}/.github
+        cp -R requirements.txt {{cookiecutter.repo_name}}/requirements.txt
     - name: Top it off
       run: |
         cp -R project {{cookiecutter.repo_name}}/{{cookiecutter.codename}}
+        cp -R README.md {{cookiecutter.repo_name}}/GUIDE.md
     - name: Spice it up
       run: |
         cp .gitignore {{cookiecutter.repo_name}}/.gitignore

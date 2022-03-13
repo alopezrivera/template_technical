@@ -11,11 +11,7 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = 'Project'
-author  = 'Antonio López Rivera'
-
-# Project code name
-codename = 'project'
+from project import project, author, codename
 
 # Copyright
 copyright = f'{datetime.datetime.now().date().strftime("%Y")}, {author}'

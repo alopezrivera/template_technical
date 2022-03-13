@@ -37,6 +37,7 @@ jobs:
     - name: Top it off
       run: |
         cp -R project {{cookiecutter.repo_name}}/{{cookiecutter.codename}}
+        cp -R README.md {{cookiecutter.repo_name}}/GUIDE.md
     - name: Spice it up
       run: |
         cp .gitignore {{cookiecutter.repo_name}}/.gitignore

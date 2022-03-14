@@ -7,6 +7,7 @@ import os
 import sys
 import datetime
 import importlib
+import subprocess
 import sphinx_rtd_theme
 
 # Set up paths for import
@@ -71,7 +72,7 @@ sys.path.insert(0, os.path.abspath('../../.'))
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.autosummary',
               'sphinx.ext.imgmath',             # LaTeX math
-              'sphinx.ext.mathbase',            # HTML math
+              'sphinx.ext.jsmath',              # HTML math
               'sphinx.ext.autosectionlabel',
 ]
 
@@ -130,6 +131,12 @@ html_theme_options = {
     'logo_only': False,
     'display_version': True,
 }
+
+# jsMath
+jsmath_contents = subprocess.Popen(('dpkg', '-L', 'jsmath'), stdout=subprocess.PIPE)
+jsmath_loadpath = subprocess.check_output(('grep', '/load.js'), stdin=ps.stdout)
+
+jsmath_path = jsmath_loadpath
 
 # -- LATEX SETTINGS ------------------------------------------------------------
 

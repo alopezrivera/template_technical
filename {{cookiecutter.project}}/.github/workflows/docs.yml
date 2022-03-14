@@ -10,6 +10,10 @@ on:                       # Run action when changes are pushed or pull requests 
   release:
     types: [ published ]
 
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
 
   # ===========================
@@ -58,7 +62,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r $docsdirectory/source/requirements.txt
+    - name: Install HTML math dependencies
+      run: |
         sudo apt-get install dvipng
+        sudo apt-get install texlive-base
     - name: Generate
       run:  |
         cd $docsdirectory

@@ -131,61 +131,6 @@ html_theme_options = {
     'display_version': True,
 }
 
-# Mathjax
-mathjax_path = (
-    "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"
-)
-mathjax_config = {
-    "extensions": ["tex2jax.js"],
-    "jax": ["input/TeX", "output/SVG"],
-    "TeX": {
-        "extensions": ["AMSmath.js", "AMSsymbols.js"],
-        "Macros": {
-            "tr": ["{\\operatorname{tr}}", 0],
-            "diag": ["{\\operatorname{diag}}", 0],
-            "abs": ["{\\operatorname{abs}}", 0],
-            "pop": ["{\\operatorname{pop}}", 0],
-            "ee": ["{\\text{e}}", 0],
-            "ii": ["{\\text{i}}", 0],
-            "aux": ["{\\text{aux}}", 0],
-            "opt": ["{\\text{opt}}", 0],
-            "tgt": ["{\\text{tgt}}", 0],
-            "init": ["{\\text{init}}", 0],
-            "lab": ["{\\text{lab}}", 0],
-            "rwa": ["{\\text{rwa}}", 0],
-            "bra": ["{\\langle#1\\vert}", 1],
-            "ket": ["{\\vert#1\\rangle}", 1],
-            "Bra": ["{\\left\\langle#1\\right\\vert}", 1],
-            "Braket": [
-                "{\\left\\langle #1\\vphantom{#2} \\mid #2\\vphantom{#1}\\right\\rangle}",
-                2,
-            ],
-            "ketbra": ["{\\vert#1\\rangle\\!\\langle#2\\vert}", 2],
-            "Ket": ["{\\left\\vert#1\\right\\rangle}", 1],
-            "mat": ["{\\mathbf{#1}}", 1],
-            "op": ["{\\hat{#1}}", 1],
-            "Op": ["{\\hat{#1}}", 1],
-            "dd": ["{\\,\\text{d}}", 0],
-            "daggered": ["{^{\\dagger}}", 0],
-            "transposed": ["{^{\\text{T}}}", 0],
-            "Liouville": ["{\\mathcal{L}}", 0],
-            "DynMap": ["{\\mathcal{E}}", 0],
-            "identity": ["{\\mathbf{1}}", 0],
-            "Norm": ["{\\left\\lVert#1\\right\\rVert}", 1],
-            "norm": ["{\\lVert#1\\rVert}", 1],
-            "Abs": ["{\\left\\vert#1\\right\\vert}", 1],
-            "avg": ["{\\langle#1\\rangle}", 1],
-            "Avg": ["{\\left\langle#1\\right\\rangle}", 1],
-            "AbsSq": ["{\\left\\vert#1\\right\\vert^2}", 1],
-            "Re": ["{\\operatorname{Re}}", 0],
-            "Im": ["{\\operatorname{Im}}", 0],
-            "Real": ["{\\mathbb{R}}", 0],
-            "Complex": ["{\\mathbb{C}}", 0],
-            "Integer": ["{\\mathbb{N}}", 0],
-        },
-    },
-}
-
 # -- LATEX SETTINGS ------------------------------------------------------------
 
 report_doc             = 'report'

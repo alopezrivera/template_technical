@@ -134,7 +134,7 @@ html_theme_options = {
 
 # jsMath
 jsmath_contents = subprocess.Popen(('dpkg', '-L', 'jsmath'), stdout=subprocess.PIPE)
-jsmath_loadpath = subprocess.check_output(('grep', '/load.js'), stdin=ps.stdout)
+jsmath_loadpath = subprocess.check_output(('grep', '/load.js'), stdin=jsmath_contents.stdout)
 
 jsmath_path = jsmath_loadpath
 

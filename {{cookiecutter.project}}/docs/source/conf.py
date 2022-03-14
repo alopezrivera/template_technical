@@ -130,6 +130,9 @@ html_theme_options = {
     'display_version': True,
 }
 
+# Math
+imgmath_image_format = 'svg'
+
 # -- LATEX SETTINGS ------------------------------------------------------------
 
 report_doc             = 'report'

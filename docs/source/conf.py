@@ -71,7 +71,7 @@ sys.path.insert(0, os.path.abspath('../../.'))
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.autosummary',
               'sphinx.ext.imgmath',             # LaTeX math
-              'sphinx.ext.mathjax',             # HTML math
+              'sphinx.ext.mathbase',            # HTML math
               'sphinx.ext.autosectionlabel',
 ]
 

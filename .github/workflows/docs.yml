@@ -117,7 +117,7 @@ jobs:
         git pull
         git stash apply
         git add -A && git commit --allow-empty -m "Updated Documentation"
-        git push -u origin docs
+        git push -u origin $branch
 
   # ===========================
   #

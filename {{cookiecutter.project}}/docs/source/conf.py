@@ -7,6 +7,7 @@ import os
 import sys
 import datetime
 import importlib
+import subprocess
 import sphinx_rtd_theme
 
 # Set up paths for import
@@ -30,7 +31,7 @@ from docs.source.project import project, author, codename
 #
 #            if __name__ == '__main__':
 #                <body of your project>
-#
+
 release = importlib.import_module(codename).__version__           # Get project version
 sys.path.remove(root_path)                                        # Remove root path from search
 
@@ -70,8 +71,7 @@ sys.path.insert(0, os.path.abspath('../../.'))
 # ones.
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.autosummary',
-              'sphinx.ext.imgmath',             # LaTeX math
-              'sphinx.ext.mathbase',            # HTML math
+              'sphinx.ext.imgmath',
               'sphinx.ext.autosectionlabel',
 ]
 

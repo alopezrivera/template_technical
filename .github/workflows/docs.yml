@@ -112,10 +112,7 @@ jobs:
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git stash
-        git fetch
         git pull
-        git stash apply
         git add -A && git commit --allow-empty -m "Updated Documentation"
         git push -u origin $branch
 
@@ -179,9 +176,6 @@ jobs:
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git stash
-        git fetch
         git pull
-        git stash apply
         git add $pdf_dir/${{ github.event.repository.name }}.pdf && git commit --allow-empty -m "Updated Report"
         git push -u

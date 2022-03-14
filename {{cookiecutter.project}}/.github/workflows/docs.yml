@@ -65,7 +65,7 @@ jobs:
     - name: Install HTML math dependencies
       run: |
         sudo apt-get install dvipng
-        sudo apt-get install texlive
+        sudo apt-get install texlive-latex-extra
     - name: Generate
       run:  |
         cd $docsdirectory

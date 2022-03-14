@@ -133,6 +133,9 @@ html_theme_options = {
 # Math
 imgmath_image_format = 'svg'
 imgmath_latex = 'luatex'
+imgmath_latex_preamble = r'''
+\RequirePackage{amsmath,amsfonts,amssymb,amsthm}
+'''
 
 # -- LATEX SETTINGS ------------------------------------------------------------
 

@@ -30,6 +30,7 @@ jobs:
     - name: Bake
       run: |
         cp -R docs {{cookiecutter.project}}/docs
+        cp -R config.env {{cookiecutter.project}}/config.env
         cp -R .github {{cookiecutter.project}}/.github
         cp -R requirements.txt {{cookiecutter.project}}/requirements.txt
     - name: Top it off

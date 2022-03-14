@@ -86,13 +86,84 @@ Leaving that as an exercise for the curious (check <em>roles</em>).</p>
 <li><p>Bullet points work as well</p></li>
 </ul>
 <p>and so does LaTeX math, as you can see in <a class="reference internal" href="#equation-test">(1)</a>!</p>
-<div class="math" id="equation-test">
-<p><span class="eqno">(1)<a class="headerlink" href="#equation-test" title="Permalink to this equation"></a></span><span class="math">f(n) =
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">f(n) =
 \begin{cases}
 n/2,  &amp; \text{if $n$ is even} \\
 3n+1, &amp; \text{if $n$ is odd}
-\end{cases}</span></p>
-</div><p>Table syntax is rather weird but manageable.</p>
+\end{cases}</span>)</p>
+<p>latex exited with error
+[stdout]
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian) 
+ restricted system commands enabled.
+(./math.tex
+! Undefined control sequence.
+l.1 \documentclass
+                [12pt]{article}
+! Undefined control sequence.
+l.2 \usepackage
+             [utf8]{inputenc}
+! Undefined control sequence.
+l.3 \usepackage
+             {amsmath}
+! Undefined control sequence.
+l.4 \usepackage
+             {amsthm}
+! Undefined control sequence.
+l.5 \usepackage
+             {amssymb}
+! Undefined control sequence.
+l.6 \usepackage
+             {amsfonts}
+! Undefined control sequence.
+l.7 \usepackage
+             {anyfontsize}
+! Undefined control sequence.
+l.8 \usepackage
+             {bm}
+! Undefined control sequence.
+l.9 \pagestyle
+            {empty}
+! Undefined control sequence.
+l.12 \begin
+         {document}
+! Undefined control sequence.
+l.13 \fontsize
+            {12}{14}\selectfont \begin{equation*}
+! Undefined control sequence.
+l.13 \fontsize{12}{14}\selectfont
+                                \begin{equation*}
+! Undefined control sequence.
+l.13 \fontsize{12}{14}\selectfont \begin
+                                      {equation*}
+! Undefined control sequence.
+l.14 \begin
+         {split}f(n) =
+! Undefined control sequence.
+l.15 \begin
+         {cases}
+! Misplaced alignment tab character &amp;.
+l.16 n/2,  &amp;
+           \text{if $n$ is even} \\
+! Undefined control sequence.
+l.16 n/2,  &amp; \text
+                {if $n$ is even} \\
+)
+Runaway argument?
+ 3n+1, &amp; \text {if $n$ is odd} \end {cases}\end {split} \end {equatio\ETC.
+! File ended while scanning use of \\.
+&lt;inserted text&gt; 
+\par 
+&lt;*&gt; math.tex
+         
+! Emergency stop.
+&lt;*&gt; math.tex
+         
+!  ==&gt; Fatal error occurred, no output PDF file produced!
+Transcript written on math.log.
+</p>
+</div>
+<p>Table syntax is rather weird but manageable.</p>
 <span id="table1"></span><table class="colwidths-auto docutils align-default" id="id1">
 <caption><span class="caption-number">Table 1 </span><span class="caption-text">Example table.</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
 <thead>

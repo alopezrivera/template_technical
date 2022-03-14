@@ -7,7 +7,6 @@ import os
 import sys
 import datetime
 import importlib
-import subprocess
 import sphinx_rtd_theme
 
 # Set up paths for import

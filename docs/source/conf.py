@@ -71,8 +71,7 @@ sys.path.insert(0, os.path.abspath('../../.'))
 # ones.
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.autosummary',
-              'sphinx.ext.imgmath',             # LaTeX math
-              'sphinx.ext.jsmath',              # HTML math
+              'sphinx.ext.imgmath',
               'sphinx.ext.autosectionlabel',
 ]
 
@@ -131,12 +130,6 @@ html_theme_options = {
     'logo_only': False,
     'display_version': True,
 }
-
-# jsMath
-jsmath_contents = subprocess.Popen(('dpkg', '-L', 'jsmath'), stdout=subprocess.PIPE)
-jsmath_loadpath = subprocess.check_output(('grep', '/load.js'), stdin=jsmath_contents.stdout)
-
-jsmath_path = jsmath_loadpath
 
 # -- LATEX SETTINGS ------------------------------------------------------------
 

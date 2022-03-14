@@ -31,7 +31,7 @@ from docs.source.project import project, author, codename
 #
 #            if __name__ == '__main__':
 #                <body of your project>
-#
+
 release = importlib.import_module(codename).__version__           # Get project version
 sys.path.remove(root_path)                                        # Remove root path from search
 

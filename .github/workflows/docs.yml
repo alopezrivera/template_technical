@@ -58,7 +58,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r $docsdirectory/source/requirements.txt
+    - name: Install HTML math dependencies
+      run: |
         sudo apt-get install dvipng
+        sudo apt-get install texlive-base
     - name: Generate
       run:  |
         cd $docsdirectory

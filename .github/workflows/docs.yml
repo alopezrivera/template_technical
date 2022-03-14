@@ -10,6 +10,10 @@ on:                       # Run action when changes are pushed or pull requests 
   release:
     types: [ published ]
 
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
 
   # ===========================

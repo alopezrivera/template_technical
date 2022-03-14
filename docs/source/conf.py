@@ -129,7 +129,6 @@ html_theme_options = {
     'logo_only': False,
     'display_version': True,
 }
-# Concurrency test
 
 # Math
 imgmath_image_format = 'svg'

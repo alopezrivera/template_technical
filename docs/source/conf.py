@@ -132,6 +132,7 @@ html_theme_options = {
 
 # Math
 imgmath_image_format = 'svg'
+imgmath_latex = 'luatex'
 
 # -- LATEX SETTINGS ------------------------------------------------------------
 

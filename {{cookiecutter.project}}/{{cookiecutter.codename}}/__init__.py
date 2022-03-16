@@ -3,7 +3,7 @@
 
 r"""
 {{ cookiecutter.project }}
-{{ "="*len(cookiecutter.project) }}
+{{ cookiecutter.project|length*"=" }}
 
 It's usually convenient to write a short introduction in your ``__init__.py``.
 """

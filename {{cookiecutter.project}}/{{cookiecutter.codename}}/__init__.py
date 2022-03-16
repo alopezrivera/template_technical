@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 r"""
-This is a package
-=================
+{{ cookiecutter.project }}
+{{ "="*len(cookiecutter.project) }}
 
 It's usually convenient to write a short introduction in your ``__init__.py``.
 """

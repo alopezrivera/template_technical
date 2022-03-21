@@ -11,11 +11,11 @@ import sphinx_rtd_theme
 
 # Set up paths for import
 file_path = os.path.realpath(__file__)                            # Obtain path of this config file
-root_path = (os.sep).join(file_path.split(os.sep)[:-3])           # Obtain project root path
+root_path = (os.sep).join(file_path.split(os.sep)[:-4])           # Obtain project root path
 sys.path.insert(1, root_path)                                     # Import from root path
 
 # -- Project information -----------------------------------------------------
-from docs.source.project import project, author, codename
+from docs.reference.source.project import project, author, codename
 
 # Obtain the project's release version, which must be stored in a
 # __version__ variable inside the main project script or package.
@@ -101,7 +101,7 @@ def run_apidoc(app):
             '-fMeET',
             '-o',
             'source',
-            f'../{codename}',   # Change to '../.' if you wish to document scripts in your top-level project directory
+            f'../../{codename}',   # Change to '../.' if you wish to document scripts in your top-level project directory
         ]
     )
 

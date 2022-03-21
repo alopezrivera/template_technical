@@ -15,7 +15,7 @@ Start by installing Cookiecutter by running `pip install cookiecutter`. Then:
    - A `docs` branch has been automatically created. It is the default host for your documentation site.
    - Create an external repository to host, and introduce its details in `config.env`. In this case, you will need to have write permission to the repo, and create a **secret** called **API_TOKEN_GITHUB** in your repository with a personal API token (check your profile -> developer settings -> keys). Push the updated `config.env` and enjoy. All is set.
 
-If you go to the Actions tab of your repo, you will see an action running, with two jobs: one for the documentation site and another generating a technical report.
+If you go to the Actions tab of your repo you will see an action running, with two jobs: one for the documentation site and another generating a technical report.
 
 ## Important files
 

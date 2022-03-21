@@ -18,7 +18,7 @@ jobs:
 
   # ===========================
   #
-  #     Documentation Site
+  #            Site
   #
   # ===========================
   site:
@@ -61,22 +61,22 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install -r $docsdirectory/source/requirements.txt
+        pip install -r $docsdir/source/requirements.txt
     - name: Install HTML math dependencies
       run: |
         sudo apt-get install dvipng
         sudo apt-get install texlive-latex-extra
     - name: Generate
       run:  |
-        cd $docsdirectory
+        cd $docsdir
         make html
-        echo ::set-output name=html::$docsdirectory/build/html
+        echo ::set-output name=html::$docsdir/build/html
       id: generate
     # REPO hosting ===============================================
     - name: Ready up
       if: env.dest_gh_repository != ''
       run: |
-        cd $docsdirectory/build/html
+        cd $docsdir/build/html
         touch .nojekyll
     - name: Push
       if: env.dest_gh_repository != ''
@@ -97,7 +97,7 @@ jobs:
       run: |
         cd ..
         mkdir docs
-        mv -v ${{ github.event.repository.name }}/$docsdirectory/build/html/* docs
+        mv -v ${{ github.event.repository.name }}/$docsdir/build/html/* docs
     - name: Switch
       if: env.branch != ''
       uses: actions/checkout@v3
@@ -126,10 +126,10 @@ jobs:
 
   # ===========================
   #
-  #          Report
+  #          Reference
   #
   # ===========================
-  report:
+  reference:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -153,12 +153,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install -r $docsdirectory/source/requirements.txt
+        pip install -r $docsdir/source/requirements.txt
     - name: Generate LaTeX code
       run:  |
-        cd $docsdirectory
+        cd $docsdir
         make latex
-        echo ::set-output name=latex::$docsdirectory/build/latex
+        echo ::set-output name=latex::$docsdir/build/latex
       id: generate
     - name: Install LaTeX engine
       run: |
@@ -175,15 +175,15 @@ jobs:
         sudo apt-get install texlive-fonts-extra
     - name: Compile
       run: |
-        cd $docsdirectory/build/latex
+        cd $docsdir/build/latex
         make LATEXMKOPTS="-lualatex"
     - name: Set
       run: |
-        mv -v $docsdirectory/build/latex/main.pdf $pdf_dir/${{ github.event.repository.name }}.pdf
+        mv -v $docsdir/build/latex/main.pdf $pdfdir/${{ github.event.repository.name }}.pdf
     - name: Push
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git pull
-        git add $pdf_dir/${{ github.event.repository.name }}.pdf && git commit --allow-empty -m "Updated Report"
+        git add $pdfdir/${{ github.event.repository.name }}.pdf && git commit --allow-empty -m "Updated Report"
         git push -u

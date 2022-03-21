@@ -78,7 +78,9 @@
 <dd><p>You can add <strong>bold</strong> and <em>italic</em> text, text with <cite>math 
 typesetting</cite> and <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">code</span></code>. You can even define custom 
 markup using CSS/LaTeX to highlight text in unimaginable ways. 
-Leaving that as an exercise for the curious (check <em>roles</em>).</p>
+Leaving that as an exercise for the curious (check <em>roles</em>). You
+can cite your sources either in text, such as <a href="#id1"><span class="problematic" id="id2">:cite:p:`Tedrake`</span></a>,
+or in parenthetic fashion <a href="#id3"><span class="problematic" id="id4">:cite:p:`di2020software`</span></a>,</p>
 <ul class="simple">
 <li><p>Bullet points work as well</p></li>
 </ul>
@@ -90,8 +92,8 @@ n/2,  &amp; \text{if $n$ is even} \\
 3n+1, &amp; \text{if $n$ is odd}
 \end{cases}"/></p>
 </div><p>Table syntax is rather weird but manageable.</p>
-<span id="table1"></span><table class="colwidths-auto docutils align-default" id="id1">
-<caption><span class="caption-number">Table 1 </span><span class="caption-text">Example table.</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<span id="table1"></span><table class="colwidths-auto docutils align-default" id="id5">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Example table.</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Header 1</strong></p></th>
 <th class="head"><p><strong>Header 2</strong></p></th>
@@ -117,22 +119,22 @@ are generating documentation from your code:</p>
 <p>Unfortunately the figure doesn’t nicely fit in this page. Fortunately,
 we can break page to try and have our discourse flow anyway.</p>
 <p>Check it:</p>
-<figure class="align-center" id="id2">
+<figure class="align-center" id="id6">
 <span id="figure1"></span><a class="reference internal image-reference" href="_images/demo.png"><img alt="_images/demo.png" src="_images/demo.png" style="width: 50%;" /></a>
 <figcaption>
 <p><span class="caption-number">Figure 1 </span><span class="caption-text">You’re free to set alignment, figure width relative to the text’s, etc. 
-Don’t trust Sphinx to go too far.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+Don’t trust Sphinx to go too far.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 <div class="legend">
 <p>If you need something complex use proper
 LaTeX code inside a <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">raw::</span> <span class="pre">latex</span></code> block.</p>
 </div>
 </figcaption>
 </figure>
-<figure class="align-center" id="id3">
+<figure class="align-center" id="id7">
 <span id="figure2"></span><a class="reference internal image-reference" href="_images/demo.png"><img alt="_images/demo.png" src="_images/demo.png" style="width: 50%;" /></a>
 <figcaption>
 <p><span class="caption-number">Figure 2 </span><span class="caption-text">Adding a cross-reference to <a class="reference internal" href="#table1"><span class="std std-numref">Table 1</span></a> or <a class="reference internal" href="#figure1"><span class="std std-numref">Figure 1</span></a> works 
-much as it would in LaTeX.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+much as it would in LaTeX.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </dd></dl>

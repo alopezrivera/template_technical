@@ -4,7 +4,7 @@
 %                            %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\def\project{Project}
+\def\project{Project Name}
 
 % Institution
 \def\institution{
@@ -15,12 +15,28 @@ Deutschland\\
 robotik@dfki.de\\
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            %
+%           Design           %
+%                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Page dimensions
+\newlength \marginTop
+\setlength \marginTop    {3cm}
+\newlength \marginBottom 
+\setlength \marginBottom {1.5cm}
+\newlength \textWidth
+\setlength \textWidth    {6in}
+
+\newlength \textHeight
+\setlength \textHeight   {\dimexpr \paperheight - \marginTop - \marginBottom}
+
 % Logo
 \def\logo{logo.jpg}
 
 % Header
-\definecolor{colorHeader}{HTML}{3a5eaa}
-\def\styleInst{\fontsize{8}{8}\linespread{1.4}\selectfont}
+\def\colorHeader {3a5eaa}
 
 % Dimensions
 \newlength \logoHeight
@@ -29,3 +45,10 @@ robotik@dfki.de\\
 \setlength \headerHeight {2.5cm}
 \newlength \headerLineWidth
 \setlength \headerLineWidth {0.05cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            %
+%        Main Package        %
+%                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{report}

@@ -7,10 +7,13 @@ Welcome to the |project| documentation!
 .. include:: intro.rst
 
 .. toctree::
-    :maxdepth: 4
+    :glob:
     :caption: Table of Contents
     
+    intro
     project
+    bibliography
+
 
 Indices and tables
 ==================

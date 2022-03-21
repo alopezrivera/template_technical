@@ -15,7 +15,7 @@ root_path = (os.sep).join(file_path.split(os.sep)[:-4])           # Obtain proje
 sys.path.insert(1, root_path)                                     # Import from root path
 
 # -- Project information -----------------------------------------------------
-from docs.source.project import project, author, codename, report_title, logo
+from docs.reference.source.project import project, author, codename, report_title, logo
 
 # Scan the project to generate documentation
 scan = True

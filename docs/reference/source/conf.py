@@ -15,7 +15,10 @@ root_path = (os.sep).join(file_path.split(os.sep)[:-4])           # Obtain proje
 sys.path.insert(1, root_path)                                     # Import from root path
 
 # -- Project information -----------------------------------------------------
-from docs.reference.source.project import project, author, codename
+from docs.source.project import project, author, codename, report_title, logo
+
+# Scan the project to generate documentation
+scan = True
 
 # Obtain the project's release version, which must be stored in a
 # __version__ variable inside the main project script or package.
@@ -59,6 +62,12 @@ numfig_format = {'figure':     'Figure %s',
                  'table':      'Table %s',
                  'code-block': 'Listing %s',
                  'section':    'Section %s'}
+
+# BibTeX citations
+#    In text:           :cite:t:`key`
+#    Parenthetical:     :cite:p:`key`
+extensions      = ['sphinxcontrib.bibtex']
+bibtex_bibfiles = ['bibliography.bib']
 
 # -- General configuration ---------------------------------------------------
 
@@ -144,7 +153,9 @@ latex_additional_files = ['style.sty', 'project.sty'] + figures
 latex_engine = 'lualatex'
 
 latex_elements = {
-'preamble': r'\RequirePackage{style}',
+'preamble': r'''
+\RequirePackage{style}
+''',
 'releasename': 'Version',
 'papersize': 'a4paper',
 'pointsize': '11pt',
@@ -159,12 +170,13 @@ vmargin={4cm,3cm},
 }
 
 latex_documents = [
-  (report_doc, 'main.tex', f'{project} Documentation', author, 'manual'),
+  (report_doc, 'main.tex', report_title, author, 'manual'),
 ]
 
 # Document __init__ files
 special_members = '__init__'
 
 # -- Generate documentation ----------------------------------------------------
-def setup(app):
-    app.connect('builder-inited', run_apidoc)
+if scan:
+    def setup(app):
+        app.connect('builder-inited', run_apidoc)

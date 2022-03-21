@@ -21,8 +21,8 @@ If you go to the Actions tab of your repo, you will see an action running, with 
 
 ### `config.env`
 
-Sets terminal environment variables for the 
-site and report generation and upload process.
+Sets the terminal environment variables of the GitHub runners 
+which generate and upload your site and report.
 
 ### `requirements.txt`
 

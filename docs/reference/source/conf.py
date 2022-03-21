@@ -77,10 +77,10 @@ sys.path.insert(0, os.path.abspath('../../.'))
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc',
-              'sphinx.ext.autosummary',
-              'sphinx.ext.imgmath',
-              'sphinx.ext.autosectionlabel',
+extensions += ['sphinx.ext.autodoc',
+               'sphinx.ext.autosummary',
+               'sphinx.ext.imgmath',
+               'sphinx.ext.autosectionlabel'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -133,7 +133,7 @@ html_theme = 'sphinx_rtd_theme'
 extensions += ['sphinx_rtd_theme']
 
 # Logo
-html_logo = f'figures/demo.png'
+html_logo = f'figures/{logo}'
 html_theme_options = {
     'logo_only': False,
     'display_version': True,
@@ -148,13 +148,13 @@ imgmath_latex_preamble = ''
 
 report_doc             = 'report'
 figures                = [os.path.join(dp, f) for dp, dn, filenames in os.walk('figures') for f in filenames]
-latex_additional_files = ['style.sty', 'project.sty'] + figures
+latex_additional_files = ['report.sty', 'project.sty'] + figures
 
 latex_engine = 'lualatex'
 
 latex_elements = {
 'preamble': r'''
-\RequirePackage{style}
+\RequirePackage{project}
 ''',
 'releasename': 'Version',
 'papersize': 'a4paper',

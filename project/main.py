@@ -12,7 +12,7 @@ def lonely_function():
     typesetting` and ``source code``. You can even define custom 
     markup using CSS/LaTeX to highlight text in unimaginable ways. 
     Leaving that as an exercise for the curious (check *roles*). You
-    can cite your sources either in text, such as :cite:p:`Tedrake`,
+    can cite your sources either in text, such as :cite:t:`Tedrake`,
     or in parenthetic fashion :cite:p:`di2020software`,
 
     - Bullet points work as well

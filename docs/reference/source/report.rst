@@ -26,3 +26,4 @@ This title will not display
     
     intro
     project    
+    bibliography

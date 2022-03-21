@@ -30,8 +30,9 @@ Requirements of your Python package.
 
 ### `docs/source/project.py`
 
-Project name, author and `codename` (Python package name)
+Project name, author, `codename` (Python package name)
+and report title.
 
 ### LaTeX: `docs/source/project.sty`
 
-Project name, institution, logo and aesthetics.
+Project name, institution, logo and design settings.

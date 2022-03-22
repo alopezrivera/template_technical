@@ -15,7 +15,10 @@ root_path = (os.sep).join(file_path.split(os.sep)[:-4])           # Obtain proje
 sys.path.insert(1, root_path)                                     # Import from root path
 
 # -- Project information -----------------------------------------------------
-from docs.reference.source.project import project, author, codename
+from docs.reference.source.project import project, author, codename, report_title, logo
+
+# Scan the project to generate documentation
+scan = True
 
 # Obtain the project's release version, which must be stored in a
 # __version__ variable inside the main project script or package.
@@ -60,6 +63,12 @@ numfig_format = {'figure':     'Figure %s',
                  'code-block': 'Listing %s',
                  'section':    'Section %s'}
 
+# BibTeX citations
+#    In text:           :cite:t:`key`
+#    Parenthetical:     :cite:p:`key`
+extensions      = ['sphinxcontrib.bibtex']
+bibtex_bibfiles = ['bibliography.bib']
+
 # -- General configuration ---------------------------------------------------
 
 # Set path
@@ -68,10 +77,10 @@ sys.path.insert(0, os.path.abspath('../../.'))
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc',
-              'sphinx.ext.autosummary',
-              'sphinx.ext.imgmath',
-              'sphinx.ext.autosectionlabel',
+extensions += ['sphinx.ext.autodoc',
+               'sphinx.ext.autosummary',
+               'sphinx.ext.imgmath',
+               'sphinx.ext.autosectionlabel'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -124,7 +133,7 @@ html_theme = 'sphinx_rtd_theme'
 extensions += ['sphinx_rtd_theme']
 
 # Logo
-html_logo = f'figures/demo.png'
+html_logo = f'figures/{logo}'
 html_theme_options = {
     'logo_only': False,
     'display_version': True,
@@ -139,12 +148,14 @@ imgmath_latex_preamble = ''
 
 report_doc             = 'report'
 figures                = [os.path.join(dp, f) for dp, dn, filenames in os.walk('figures') for f in filenames]
-latex_additional_files = ['style.sty', 'project.sty'] + figures
+latex_additional_files = ['report.sty', 'project.sty'] + figures
 
 latex_engine = 'lualatex'
 
 latex_elements = {
-'preamble': r'\RequirePackage{style}',
+'preamble': r'''
+\RequirePackage{project}
+''',
 'releasename': 'Version',
 'papersize': 'a4paper',
 'pointsize': '11pt',
@@ -159,12 +170,13 @@ vmargin={4cm,3cm},
 }
 
 latex_documents = [
-  (report_doc, 'main.tex', f'{project} Documentation', author, 'manual'),
+  (report_doc, 'main.tex', report_title, author, 'manual'),
 ]
 
 # Document __init__ files
 special_members = '__init__'
 
 # -- Generate documentation ----------------------------------------------------
-def setup(app):
-    app.connect('builder-inited', run_apidoc)
+if scan:
+    def setup(app):
+        app.connect('builder-inited', run_apidoc)

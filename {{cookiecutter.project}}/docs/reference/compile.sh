@@ -1,11 +1,19 @@
 #!/bin/bash
 
 # Remove any generated documentation
-find . -name 'project*rst'
-find . -name 'project*rst' -delete
-# Remove LaTeX artifacts
+find . -name 'simple_pendulum*rst'
+find . -name 'simple_pendulum*rst' -delete
+# Clean
 make clean
+
+# Generate site
+make html
+find . -name 'simple_pendulum*rst'
+find . -name 'simple_pendulum*rst' -delete
+# Generate LaTeX code
 make latex
+find . -name 'simple_pendulum*rst'
+find . -name 'simple_pendulum*rst' -delete
 
 # Build
 cd build

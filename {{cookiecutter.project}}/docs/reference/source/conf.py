@@ -15,7 +15,7 @@ root_path = (os.sep).join(file_path.split(os.sep)[:-4])           # Obtain proje
 sys.path.insert(1, root_path)                                     # Import from root path
 
 # -- Project information -----------------------------------------------------
-from docs.reference.source.project import project, author, codename, report_title, logo
+from docs.reference.source.project import project, author, codename, report_title, report_author, logo
 
 # Scan the project to generate documentation
 scan = True
@@ -71,9 +71,6 @@ bibtex_bibfiles = ['bibliography.bib']
 
 # -- General configuration ---------------------------------------------------
 
-# Set path
-sys.path.insert(0, os.path.abspath('../../.'))
-
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
@@ -100,6 +97,9 @@ modindex_common_prefix = [f'{codename}.']
 def run_apidoc(app):
     """Generage API documentation"""
     import better_apidoc
+
+    # Set package search path
+    sys.path.insert(0, os.path.abspath('../../software/.'))
 
     better_apidoc.APP = app
     better_apidoc.main(
@@ -170,7 +170,7 @@ vmargin={4cm,3cm},
 }
 
 latex_documents = [
-  (report_doc, 'main.tex', report_title, author, 'manual'),
+  (report_doc, 'main.tex', report_title, report_author, 'manual'),
 ]
 
 # Document __init__ files

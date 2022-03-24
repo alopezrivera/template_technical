@@ -22,7 +22,7 @@
 %                            %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\styleTitle   {\fontsize{30}{40}\bfseries\selectfont}
-\def\styleAuthor  {\fontsize{15}{15}\bfseries\selectfont}
+\def\styleAuthor  {\fontsize{15}{20}\bfseries\selectfont}
 \def\styleDate    {\fontsize{12}{12}\selectfont}
 
 \def\styleTOC     {\fontsize{30}{30}\selectfont}
@@ -46,7 +46,7 @@
 
     \clearpage\thispagestyle{empty}     % Remove page numbering
 
-    \newgeometry{left=0mm,bottom=4cm, top=-4.2mm, right=0mm}
+    \newgeometry{left=3cm,bottom=4cm, top=-4.2mm, right=3cm}
     \begin{titlepage}
 
     \makeatletter                       % Retrieve title & other macros
@@ -60,7 +60,7 @@
     {\styleAuthor\@author}
 
     \vspace*{0.5cm}
-    {\styleDate\@date}
+    {\styleDate\monthyeardate\today}
 
     \begin{figure}[!b]
         \centering

@@ -7,7 +7,10 @@ author  = 'Author'
 codename = 'project'
 
 # Report title
-report_title = rf'{project}\\Reference'
+report_title  = rf'{project}\\Reference'
+report_author = rf'''
+{author}
+'''
 
 # Logo
 logo = 'logo.jpg'

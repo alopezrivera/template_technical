@@ -1,5 +1,11 @@
 # Technical Project Template
 
+<!-- Uncomment to display test coverage badges -->
+<!-- <div align="center">
+<img src="cov/ub18cov.svg">
+<img src="cov/ub20cov.svg">
+</div> -->
+
 Continuous documentation and reporting for technical projects.
 
 ## Setting up your project

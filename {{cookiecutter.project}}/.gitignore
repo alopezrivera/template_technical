@@ -1,5 +1,2 @@
-# Ignore submodules
-templates/*
-
 # Ignore pycache files
 **/__pycache__/**

@@ -131,9 +131,12 @@ jobs:
         git add cov/ub18cov.svg && git commit --allow-empty -m "Badge updated"
         git push -u
     - name: Close
-      if: steps.tests.outcome != 'success'
+      if: env.run_tests == 'true'
       run: |
-        exit 1
+        if ${{ steps.tests.outcome != 'success' }}
+        then
+          exit 1
+        fi
   # ===========================
   #
   #         Ubuntu 20

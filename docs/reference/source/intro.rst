@@ -5,20 +5,29 @@
 The following is a demonstration of what you can achieve by
 using Sphinx and reStructuredText to document your projects.
 
-Say that you want to create documentation from the docstrings
-in your code. **Two conditions**:
+The capabilities of reStructuredText and Sphinx will be
+discussed and demonstrated, as well as best practices for 
+writing and generating documentation with Sphinx.
 
-- Your project must be a Python **package**
-- Your **package** must have a ``__version__`` global variable
+Sphinx allows you to document your project with the docstrings 
+in your code. You will find here what you must know to produce
+technical documents from your code. Lastly, you will see the
+documentation generated from the example source code in this
+repository.
 
-Say that you have a package: it has a main script, and
-a single ``lonely_function``. 
+.. rst-class:: center
 
-Now before we go,
+        **GUIDANCE**: 
+        
+        :ref:`Primer`
 
-.. raw:: latex
+.. admonition:: EXECUTIVE SUMMARY
+    :class: important
 
-    \section*{Some tips on writing proper docstrings:}
+    Sphinx reStructuredText supports LaTeX math, citations,
+    cross-refernces, figures, lists, tables, file inclusion, text
+    highlight markup and more.
 
-- Use raw strings.
-- Write reStructuredText.
+    .. rst-class:: center
+
+        **Read on to get started!**

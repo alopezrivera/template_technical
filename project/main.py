@@ -8,16 +8,26 @@ Main Module
 
 def lonely_function():
     r"""
+    As promised, what follows is a demonstration of docstring
+    documentation.
+
     You can add **bold** and *italic* text, text with `math 
-    typesetting` and ``source code``. You can even define custom 
-    markup using CSS/LaTeX to highlight text in unimaginable ways. 
-    Leaving that as an exercise for the curious (check *roles*). You
-    can cite your sources either in text, such as :cite:t:`Tedrake`,
+    typesetting` and ``source code``.
+    You can cite your sources either in text, such as :cite:t:`Tedrake`,
     or in parenthetic fashion :cite:p:`di2020software`,
 
     - Bullet points work as well
 
-    and so does LaTeX math, as you can see in :eq:`test`!
+    and so does LaTeX math, unlabeled and labeled,
+    as you can see in :eq:`test`!
+
+    .. math::
+
+        f(n) =
+        \begin{cases}
+        n/2,  & \text{if $n$ is even} \\
+        3n+1, & \text{if $n$ is odd}
+        \end{cases}
 
     .. math::
         :label: test
@@ -30,10 +40,11 @@ def lonely_function():
 
     Table syntax is rather weird but manageable.
 
-    .. _table1:
+    .. _table2:
     .. list-table:: Example table.
         :widths: auto
         :header-rows: 1
+        :align: center
 
         * - **Header 1**
           - **Header 2**
@@ -60,7 +71,7 @@ def lonely_function():
 
     Check it:
 
-    .. _figure1:
+    .. _figure2:
     .. figure:: figures/demo.png
         :width: 50%
         :align: center
@@ -71,7 +82,7 @@ def lonely_function():
         If you need something complex use proper
         LaTeX code inside a ``.. raw:: latex`` block.
 
-    .. _figure2:
+    .. _figure3:
     .. figure:: figures/demo.png
         :width: 50%
         :align: center

@@ -2,10 +2,19 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 r"""
-{{ cookiecutter.project }}
-{{ cookiecutter.project|length*"=" }}
+Your Project
+============
 
 It's usually convenient to write a short introduction in your ``__init__.py``.
+
+.. admonition:: NOTE
+    :class: danger
+
+    This project is:
+
+    - A Python package
+    - Its version is specifed in its ``__init__.py``
+
 """
 
 # Global variables

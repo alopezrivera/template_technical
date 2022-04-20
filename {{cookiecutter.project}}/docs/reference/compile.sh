@@ -1,20 +1,20 @@
 #!/bin/bash
 
 # Remove any previous documentation
-find . -name 'project*rst'
-find . -name 'project*rst' -delete
+find . -name '~REPLACE-BY-CODENAME~*rst'
+find . -name '~REPLACE-BY-CODENAME~*rst' -delete
 # Clean
 make clean
 
 # Generate site
 make html
-find . -name 'project*rst'
-find . -name 'project*rst' -delete
+find . -name '~REPLACE-BY-CODENAME~*rst'
+find . -name '~REPLACE-BY-CODENAME~*rst' -delete
 
 # Remove LaTeX artifacts
 make latex
-find . -name 'project*rst'
-find . -name 'project*rst' -delete
+find . -name '~REPLACE-BY-CODENAME~*rst'
+find . -name '~REPLACE-BY-CODENAME~*rst' -delete
 
 # Build
 cd build

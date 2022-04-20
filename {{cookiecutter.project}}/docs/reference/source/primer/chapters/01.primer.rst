@@ -35,7 +35,7 @@ best practices for writing and generating documentation with Sphinx.
 
 Much of the same will be demonstrated again in :ref:`Your Project`,
 with a twist: :ref:`Your Project` is generated directly from the
-source code in this proejct.
+source code in this project.
 
 .. admonition:: MIND THE BACKTICKS
     :class: danger

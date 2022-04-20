@@ -1,10 +1,10 @@
 # -- Project information -----------------------------------------------------
 
-project = 'Project'
+project = '~REPLACE-BY-PROJECT-NAME~'
 author  = 'Author'
 
 # Project code name
-codename = 'project'
+codename = '~REPLACE-BY-CODENAME~'
 
 # Project code directory
 codedir = '.'

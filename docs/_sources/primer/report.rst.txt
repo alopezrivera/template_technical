@@ -1,8 +1,8 @@
 .. To render this primer, replace the index.rst
 .. under ``source/`` with this file.
 
-Primer on reStructuredText
-==========================
+This title will not display
+===========================
 
 .. include:: primer/intro.rst
 
@@ -13,10 +13,3 @@ Primer on reStructuredText
     primer/chapters/*
     project
     bibliography
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

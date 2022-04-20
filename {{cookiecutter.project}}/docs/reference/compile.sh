@@ -1,11 +1,20 @@
 #!/bin/bash
 
-# Remove any generated documentation
+# Remove any previous documentation
 find . -name 'project*rst'
 find . -name 'project*rst' -delete
-# Remove LaTeX artifacts
+# Clean
 make clean
+
+# Generate site
+make html
+find . -name 'project*rst'
+find . -name 'project*rst' -delete
+
+# Remove LaTeX artifacts
 make latex
+find . -name 'project*rst'
+find . -name 'project*rst' -delete
 
 # Build
 cd build

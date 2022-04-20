@@ -29,7 +29,7 @@ def f():
     3. f
 
     As you can see, functions are rendered in the order in which 
-    you've got them written down. Nice.
+    they are written in their source. Nice.
     """
     pass
 

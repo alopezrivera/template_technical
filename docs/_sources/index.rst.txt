@@ -10,10 +10,9 @@ Welcome to the |project| documentation!
     :glob:
     :caption: Table of Contents
     
-    intro
+    chapters/*
     project
     bibliography
-
 
 Indices and tables
 ==================

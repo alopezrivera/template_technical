@@ -72,7 +72,7 @@ def lonely_function():
     Check it:
 
     .. _figure2:
-    .. figure:: figures/demo.png
+    .. figure:: primer/figures/demo.png
         :width: 50%
         :align: center
 
@@ -83,7 +83,7 @@ def lonely_function():
         LaTeX code inside a ``.. raw:: latex`` block.
 
     .. _figure3:
-    .. figure:: figures/demo.png
+    .. figure:: primer/figures/demo.png
         :width: 50%
         :align: center
 

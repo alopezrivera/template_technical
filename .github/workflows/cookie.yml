@@ -14,42 +14,77 @@ jobs:
         shell: bash
     
     # Run if previous Documentation Workflow has been successful
-    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
     - name: Set up Git repository
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
+    - name: Load config variables into env
+      run: |
+        grep -v '^#' config.env | tr -d "[:blank:]" >> $GITHUB_ENV
     - name: Clean up
       run: |
         rm -r {{cookiecutter.project}}
     - name: Set up
       run: |
         mkdir {{cookiecutter.project}}
-    - name: Bake
-      run: |
-        cp -R docs {{cookiecutter.project}}/docs
-        cp -R config.env {{cookiecutter.project}}/config.env
-        cp -R .github {{cookiecutter.project}}/.github
-        cp -R requirements.txt {{cookiecutter.project}}/requirements.txt
-    - name: Shake
-      run: |
-        rm {{cookiecutter.project}}/.github/workflows/cookie.yml
-    - name: Plate
-      run: |
-        cp -R project {{cookiecutter.project}}/{{cookiecutter.codename}}
-        cp -R README.md {{cookiecutter.project}}/GUIDE.md
-    - name: Embelish
-      run: |
-        cd {{cookiecutter.project}}/{{cookiecutter.codename}}
-        sed -i 's/Your Project/{{cookiecutter.project}}/g' __init__.py
-        sed -i 's/============/{{cookiecutter.project|length*"="}}/g' __init__.py
-    - name: Spice
+    - name: CI
       run: |
         cp .gitignore {{cookiecutter.project}}/.gitignore
+        # Docs
+        cp -R docs {{cookiecutter.project}}/docs
+        # Actions
+        cp -R .github {{cookiecutter.project}}/.github
+        cp -R config.env {{cookiecutter.project}}/config.env
+        # Clean up
+        rm {{cookiecutter.project}}/.github/workflows/cookie.yml
+        rm {{cookiecutter.project}}/$pdfdir/${{ github.event.repository.name }}.pdf
+    - name: Project
+      run: |
         cp LICENSE {{cookiecutter.project}}/LICENSE
-    - name: Serve
+        # Guide
+        cp README.md {{cookiecutter.project}}/GUIDE.md
+        # Requirements
+        # Project
+        mkdir {{cookiecutter.project}}/{{cookiecutter.codename}}
+        echo "__version__ = '0.0.0.a0'       # Important" > $_/__init__.py
+        # Unit tests
+        cp -R tests {{cookiecutter.project}}/tests
+        # Requirements
+        cp requirements.txt {{cookiecutter.project}}/requirements.txt
+    - name: Substitutions
+      run: |
+        . bash/delete.sh
+        . bash/replace.sh
+        cd {{cookiecutter.project}}
+
+        # Test
+        replace tests/test_sample.py "..\/project" "..\/~REPLACE-BY-CODENAME~"
+
+        ########
+        # Docs #
+        ########
+
+        # docs.yml
+        delete_between .github/workflows/docs.yml "- name: Set up primer" "report\.rst"
+
+        cd docs/reference
+        # compile.sh
+        replace compile.sh "project" "~REPLACE-BY-CODENAME~"
+
+        cd source
+        # project.py
+        replace project.py  "codename = 'project'" "codename = '~REPLACE-BY-CODENAME~'"
+        replace project.py  "project = 'Project'"  "project = '~REPLACE-BY-PROJECT-NAME~'"
+        # project.sty
+        replace project.sty "Project Name" "~REPLACE-BY-PROJECT-NAME~"
+        # index.rst
+        replace index.rst   "project" "~REPLACE-BY-CODENAME~"
+        # report.rst
+        replace report.rst  "project" "~REPLACE-BY-CODENAME~"
+    - name: Push
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"

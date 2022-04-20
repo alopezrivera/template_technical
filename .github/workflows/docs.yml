@@ -63,6 +63,15 @@ jobs:
       run: |
         sudo apt-get install dvipng
         sudo apt-get install texlive-latex-extra
+    - name: Set up primer
+      run: |
+        cd $docsdir/source
+        # Site
+        rm index.rst
+        cp primer/index.rst index.rst
+        # Reference
+        rm report.rst
+        cp primer/index.rst report.rst
     - name: Generate
       run:  |
         cd $docsdir
@@ -153,6 +162,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r $codedir/requirements.txt
         pip install -r $docsdir/source/requirements.txt
+    - name: Set up primer
+      run: |
+        cd $docsdir/source
+        # Site
+        rm index.rst
+        cp primer/index.rst index.rst
+        # Reference
+        rm report.rst
+        cp primer/index.rst report.rst
     - name: Generate LaTeX code
       run:  |
         cd $docsdir

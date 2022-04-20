@@ -4,13 +4,10 @@
 Welcome to the |project| documentation!
 =======================================
 
-.. include:: intro.rst
-
 .. toctree::
     :glob:
     :caption: Table of Contents
     
-    chapters/*
     project
     bibliography
 

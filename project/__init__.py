@@ -18,8 +18,7 @@ It's usually convenient to write a short introduction in your ``__init__.py``.
 """
 
 # Global variables
-__version__ = '0.0.1'       # Important
-
+__version__ = '0.0.0.a0'       # Important
 
 # General utilities
 def some_API_function():

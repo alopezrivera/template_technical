@@ -8,7 +8,6 @@ Math
 
     # Unnumbered block equations
     .. math::
-        :label: <equation label>
 
         <block equation>
 

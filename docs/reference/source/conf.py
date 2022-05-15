@@ -17,7 +17,10 @@ root_path = (os.sep).join(file_path.split(os.sep)[:-4])           # Obtain proje
 sys.path.insert(1, root_path)                                     # Import from root path
 
 # -- Project information -----------------------------------------------------
-from docs.reference.source.project import project, author, codename, codedir, report_title, report_author, logo
+from docs.reference.source.project import project, author, \
+                                          codename, codedir, excluded_modules, \
+                                          report_title, report_author, \
+                                          logo
 
 # Scan the project to generate documentation
 scan = True
@@ -110,6 +113,14 @@ add_module_names = False
 # Works only for the HTML builder currently. Default is [].
 modindex_common_prefix = [f'{codename}.']
 
+# -- Doc Generation ----------------------------------------------------------
+
+# Module path from the directory where Sphinx is being run (docs/reference)
+module_path = f'../../{src("/")}{codename}/'
+
+# Exclude patterns
+apidoc_exclude_patterns = excluded_modules
+
 # -- Use package and module documentation templates with better_apidoc  --------
 def run_apidoc(app):
     """Generage API documentation"""
@@ -117,6 +128,9 @@ def run_apidoc(app):
 
     # Set package search path
     sys.path.insert(0, os.path.abspath(f'../../{src("/")}.'))
+
+    # Excluded pattern input string
+    _apidoc_exclude_patterns = [module_path + excl for excl in apidoc_exclude_patterns]
 
     better_apidoc.APP = app
     better_apidoc.main(
@@ -127,8 +141,8 @@ def run_apidoc(app):
             '-fMeET',
             '-o',
             'source',
-            f'../../{src("/")}{codename}',
-        ]
+            module_path
+        ] + _apidoc_exclude_patterns        
     )
 
 # List of patterns, relative to source directory, that match files and
